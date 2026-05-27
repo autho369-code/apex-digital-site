@@ -173,7 +173,7 @@ export default function Home() {
           </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { num: "01", title: "Discovery & Build", desc: "One call to understand your business. Then we build the right AI systems — configured specifically to your needs — within 48 hours." },
+              { num: "01", title: "Discovery & Build", desc: "We identify your biggest operational bottleneck. Then we deploy the right AI system to fix it — configured specifically to your business — within 48 hours." },
               { num: "02", title: "Go Live", desc: "Systems activate. AI answers calls. Reviews get managed. Content posts. Website goes live. You get a real-time dashboard." },
               { num: "03", title: "Optimize & Scale", desc: "Weekly performance reviews. We tune the AI based on real data. Every month the system gets smarter. You focus on the work." },
             ].map((step, i) => (
