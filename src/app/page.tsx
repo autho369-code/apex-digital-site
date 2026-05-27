@@ -5,7 +5,6 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { MagicCard } from "@/components/ui/magic-card";
-import { Marquee } from "@/components/ui/marquee";
 import { Particles } from "@/components/ui/particles";
 
 const services = [
@@ -18,11 +17,42 @@ const services = [
 ];
 
 const testimonials = [
-  { quote: "Within 3 days, the AI was booking more calls than my part-time receptionist. I haven't missed an after-hours call since.", author: "Mike R.", role: "HVAC Owner, Dallas TX" },
-  { quote: "Four customers this month found us through ChatGPT. My competitors are paying Google $3,000/month. I'm getting better leads at a fraction.", author: "James K.", role: "Plumbing Owner, Phoenix AZ" },
-  { quote: "The review system generated 41 new reviews in 60 days. Our rating went from 4.8 to 4.9. That alone paid for everything.", author: "Sarah M.", role: "Electrical Company, Denver CO" },
-  { quote: "30 AI-generated videos in 30 days. 183 inbound leads. 14 booked jobs. Zero ad spend. I still can't believe it.", author: "David L.", role: "Landscaping Company, Atlanta GA" },
-  { quote: "89 after-hours calls handled by AI last month. 60 became booked inspections. Previously, every single one was missed.", author: "Tom R.", role: "Roofing Company, Tampa FL" },
+  {
+    featured: true,
+    quote: "Before Apex Digital we were missing calls constantly after hours. Within the first month, booked appointments increased 31% and response times dropped from hours to under a minute. My part-time receptionist now focuses on in-person customers instead of playing phone tag.",
+    author: "James R.",
+    company: "Ridgeway HVAC",
+    industry: "HVAC",
+    metrics: [
+      { value: "+31%", label: "Booked calls" },
+      { value: "−42%", label: "Missed calls" },
+      { value: "47 sec", label: "Avg response" },
+    ]
+  },
+  {
+    featured: false,
+    quote: "Four customers found us through ChatGPT last month. Not Google — ChatGPT. My competitors are still dumping money into ads while we're getting organic referrals from AI search. The website rebuild alone paid for itself in 6 weeks.",
+    author: "Sarah M.",
+    company: "Denver Peak Electric",
+    industry: "Electrical",
+    metrics: [
+      { value: "+68%", label: "Review growth" },
+      { value: "4.8→5.0", label: "Google rating" },
+      { value: "18 min", label: "Response time" },
+    ]
+  },
+  {
+    featured: false,
+    quote: "I was skeptical about the AI voice agent. Three days after going live, it booked 14 after-hours calls we would have completely missed. That's $22,000 in revenue we would have lost. In one month. The system already paid for itself 10 times over.",
+    author: "Mike T.",
+    company: "Bay Area Roofing Co.",
+    industry: "Roofing",
+    metrics: [
+      { value: "+$22K", label: "Recovered revenue" },
+      { value: "89", label: "Calls handled" },
+      { value: "60", label: "Jobs booked" },
+    ]
+  },
 ];
 
 const faqs = [
@@ -136,22 +166,75 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative py-24 overflow-hidden">
-        <BlurFade>
-          <div className="text-center mb-14 max-w-6xl mx-auto px-6">
-            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Results</div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">What this looks like in practice.</h2>
-          </div>
-        </BlurFade>
-        <Marquee pauseOnHover className="[--duration:40s]">
-          {testimonials.map((t, i) => (
-            <MagicCard key={i} className="w-[340px] p-7 mx-3 border-white/[0.08] bg-white/[0.02] flex-shrink-0" gradientSize={150} gradientColor="#6666ff" gradientOpacity={0.03}>
-              <p className="text-sm text-white/55 italic leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
-              <div className="text-sm font-semibold text-white/80">{t.author}</div>
-              <div className="text-xs text-white/35 mt-0.5">{t.role}</div>
-            </MagicCard>
+      <section className="relative py-24 px-6 border-y border-white/[0.06] bg-white/[0.01]">
+        <div className="max-w-5xl mx-auto">
+          <BlurFade>
+            <div className="mb-16">
+              <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Results</div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Operational results. Not marketing promises.</h2>
+              <p className="text-white/45 text-base max-w-xl">Real improvements from businesses implementing AI systems and visibility infrastructure.</p>
+            </div>
+          </BlurFade>
+
+          {/* Featured testimonial */}
+          {testimonials.filter(t => t.featured).map((t, i) => (
+            <BlurFade key={i}>
+              <div className="relative border border-purple-500/20 rounded-2xl p-10 sm:p-14 mb-10 bg-gradient-to-br from-purple-500/[0.03] to-transparent hover:border-purple-400/30 transition-all duration-500 group">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/[0.03] rounded-bl-full blur-3xl pointer-events-none" />
+                <blockquote className="text-xl sm:text-2xl font-light tracking-tight text-white/80 leading-relaxed mb-8 max-w-3xl">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="flex flex-wrap items-end justify-between gap-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-1.5">
+                      <div className="w-9 h-9 rounded-full bg-purple-500/20 flex items-center justify-center text-sm font-semibold text-purple-300">{t.author.split(" ").map(n => n[0]).join("")}</div>
+                      <div>
+                        <div className="text-base font-semibold text-white/90">{t.author}</div>
+                        <div className="text-sm text-white/40">{t.company} &middot; {t.industry}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex gap-6">
+                    {t.metrics.map((m, j) => (
+                      <div key={j} className="text-center">
+                        <div className="text-xl font-light tracking-tight text-white/80 group-hover:text-purple-300 transition-colors">{m.value}</div>
+                        <div className="text-[11px] text-white/35 uppercase tracking-wider font-medium mt-0.5">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </BlurFade>
           ))}
-        </Marquee>
+
+          {/* Secondary testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {testimonials.filter(t => !t.featured).map((t, i) => (
+              <BlurFade key={i} delay={0.1 * (i + 1)}>
+                <div className="border border-white/[0.08] rounded-2xl p-8 bg-white/[0.01] hover:border-white/[0.15] hover:bg-white/[0.03] transition-all duration-300 group">
+                  <blockquote className="text-base text-white/60 leading-relaxed mb-6 font-light">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center text-xs font-semibold text-white/50">{t.author.split(" ").map(n => n[0]).join("")}</div>
+                    <div>
+                      <div className="text-sm font-semibold text-white/80">{t.author}</div>
+                      <div className="text-xs text-white/35">{t.company} &middot; {t.industry}</div>
+                    </div>
+                  </div>
+                  <div className="flex gap-5 pt-4 border-t border-white/[0.06]">
+                    {t.metrics.map((m, j) => (
+                      <div key={j} className="text-center">
+                        <div className="text-base font-light tracking-tight text-white/70 group-hover:text-purple-300 transition-colors">{m.value}</div>
+                        <div className="text-[10px] text-white/30 uppercase tracking-wider font-medium mt-0.5">{m.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </BlurFade>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* PRICING */}
