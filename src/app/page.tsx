@@ -323,7 +323,12 @@ export default function Home() {
           <BlurFade delay={0.5}>
             <div className="mt-20 pt-14 border-t border-white/[0.08]">
               <p className="text-2xl font-light tracking-tight text-white/65 mb-10 max-w-lg leading-relaxed">The businesses adopting AI infrastructure today will dominate local markets tomorrow.</p>
-              <a href="#apply"><ShinyButton className="px-10 py-4 text-lg font-semibold rounded-xl">Apply for a Free AI Growth Audit</ShinyButton></a>
+              <a
+                href="#apply"
+                className="inline-flex items-center justify-center h-14 px-8 text-[15px] font-bold rounded-xl bg-white text-[#111] border-2 border-white hover:bg-[#5B3DFF] hover:text-white hover:border-[#5B3DFF] transition-all duration-200 hover:shadow-lg hover:shadow-[#5B3DFF]/25"
+              >
+                Apply for a Free AI Growth Audit
+              </a>
             </div>
           </BlurFade>
         </div>
