@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     try {
       const res = await fetch(normalized, {
         signal: controller.signal,
-        headers: { "User-Agent": "ApexDigital-AI-Advisor/1.0" },
+        headers: { "User-Agent": "PortierAI-Advisor/1.0" },
       });
       clearTimeout(timeout);
       statusCode = res.status;

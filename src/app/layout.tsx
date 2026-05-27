@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Apex Digital — AI Growth Infrastructure",
+  title: "Portier AI — AI Growth Infrastructure",
   description: "We build AI systems that capture more calls, book more jobs, and increase visibility for service-based businesses.",
 };
 

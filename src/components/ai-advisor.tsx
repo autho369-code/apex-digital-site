@@ -14,7 +14,7 @@ interface Message {
 const advisorMessages: Record<string, Message> = {
   opening: {
     role: "advisor",
-    content: "I'm Apex Digital's AI operations advisor. I help service businesses identify where they're losing leads, visibility, and revenue — then recommend the right AI systems to fix it.\n\nWant to see where your business is leaking growth?",
+    content: "I'm Portier AI's AI operations advisor. I help service businesses identify where they're losing leads, visibility, and revenue — then recommend the right AI systems to fix it.\n\nWant to see where your business is leaking growth?",
     options: ["Analyze my website", "Tell me what you offer", "I have a specific problem"],
   },
   analyze: {
@@ -171,7 +171,7 @@ export function AIAdvisor() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-white/90">AI Systems Advisor</div>
-                  <div className="text-[10px] text-white/35 uppercase tracking-wider font-medium">Apex Digital</div>
+                  <div className="text-[10px] text-white/35 uppercase tracking-wider font-medium">Portier AI</div>
                 </div>
               </div>
               <button onClick={() => setOpen(false)} className="text-white/25 hover:text-white/60 transition-colors p-1">

@@ -20,7 +20,7 @@ const services = [
 const testimonials = [
   {
     featured: true,
-    quote: "Before Apex Digital we were missing calls constantly after hours. Within the first month, booked appointments increased 31% and response times dropped from hours to under a minute. My part-time receptionist now focuses on in-person customers instead of playing phone tag.",
+    quote: "Before Portier AI we were missing calls constantly after hours. Within the first month, booked appointments increased 31% and response times dropped from hours to under a minute. My part-time receptionist now focuses on in-person customers instead of playing phone tag.",
     author: "James R.",
     company: "Ridgeway HVAC",
     industry: "HVAC",
@@ -58,10 +58,10 @@ const testimonials = [
 
 const faqs = [
   { q: "Will this replace my receptionist?", a: "No. It removes the chaos around your receptionist. The AI handles missed calls, after-hours requests, confirmations, and repetitive questions — so your staff can focus on customers. Most businesses don't need fewer people. They need fewer bottlenecks." },
-  { q: "What if we already use ServiceTitan, Housecall Pro, or a CRM?", a: "Perfect. Apex Digital sits on top of the systems you already use — not replace them. We connect AI voice, booking automation, reviews, and follow-up directly into your existing workflow. The goal is operational speed, not software disruption." },
+  { q: "What if we already use ServiceTitan, Housecall Pro, or a CRM?", a: "Perfect. Portier AI sits on top of the systems you already use — not replace them. We connect AI voice, booking automation, reviews, and follow-up directly into your existing workflow. The goal is operational speed, not software disruption." },
   { q: "Will customers know they are talking to AI?", a: "Most do not. Modern voice systems are natural, conversational, fast, and available 24/7. Most callers only notice one thing: someone answered immediately." },
   { q: "How fast can this actually launch?", a: "Most first systems go live within 48 hours. We focus on the fastest revenue leak first: missed calls, weak follow-up, poor reviews, or slow booking. You don't need a six-month transformation. You need operational wins immediately." },
-  { q: "What makes Apex different from a marketing agency?", a: "Marketing agencies chase attention. We build infrastructure. Ads stop working when spending stops. Operational systems keep generating returns every day. This is not social media management. This is operational leverage." },
+  { q: "What makes Portier AI different from a marketing agency?", a: "Marketing agencies chase attention. We build infrastructure. Ads stop working when spending stops. Operational systems keep generating returns every day. This is not social media management. This is operational leverage." },
   { q: "Do you redesign existing websites?", a: "Yes — and most clients need it. The majority of business websites today are slow, outdated, poorly structured, and invisible in modern search. We rebuild them into high-performance growth systems." },
 ];
 
@@ -76,7 +76,7 @@ export default function Home() {
       {/* NAV */}
       <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-black/60 border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
-          <div className="text-lg font-semibold tracking-tight">Apex<span className="text-purple-400">Digital</span></div>
+          <div className="text-lg font-semibold tracking-tight">Portier<span className="text-purple-400">AI</span></div>
           <a href="#apply" className="bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02]">AI Growth Audit</a>
         </div>
       </nav>
@@ -332,7 +332,7 @@ export default function Home() {
         </BlurFade>
         <BlurFade delay={0.2}>
           <MagicCard className="p-9 sm:p-12 border-white/[0.08] bg-white/[0.02] text-left" gradientSize={300} gradientColor="#6666ff" gradientOpacity={0.04}>
-            <form action="mailto:autho369@gmail.com?subject=Apex%20Digital%20—%20AI%20Growth%20Audit" method="post" encType="text/plain" className="space-y-7">
+            <form action="mailto:autho369@gmail.com?subject=Portier%20AI%20—%20AI%20Growth%20Audit" method="post" encType="text/plain" className="space-y-7">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
                 <div><label className={labelClasses}>Full Name <span className="text-purple-400">*</span></label><input name="Name" required className={inputClasses} placeholder="John Smith" /></div>
                 <div><label className={labelClasses}>Company Name <span className="text-purple-400">*</span></label><input name="Company" required className={inputClasses} placeholder="Smith Plumbing & HVAC" /></div>
@@ -393,7 +393,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="relative py-14 px-6 border-t border-white/[0.06] text-center">
-        <p className="text-sm text-white/25 font-medium">Apex Digital &copy; 2025. AI Growth Infrastructure.</p>
+        <p className="text-sm text-white/25 font-medium">Portier AI &copy; 2025. AI Growth Infrastructure.</p>
         <a href="mailto:autho369@gmail.com" className="text-sm text-white/35 hover:text-white/60 font-medium transition-colors mt-2 inline-block">autho369@gmail.com</a>
       </footer>
 
