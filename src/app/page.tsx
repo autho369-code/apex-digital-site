@@ -250,54 +250,63 @@ export default function Home() {
       </section>
 
       {/* PRICING */}
-      <section className="relative py-24 px-6 max-w-4xl mx-auto">
+      <section className="relative py-20 px-6 max-w-4xl mx-auto">
         <BlurFade>
-          <div className="text-center mb-16">
+          <div className="text-center mb-14">
             <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Pricing</div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Start with a rebuild. Scale from there.</h2>
             <p className="text-white/45 text-base">One-time investment to modernize everything. Optional monthly maintenance to keep it running.</p>
           </div>
         </BlurFade>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {/* Featured Card */}
           <BlurFade delay={0.1}>
-            <MagicCard className="p-9 border-purple-500/25 bg-white/[0.02] hover:border-purple-400/40 transition-all duration-300" gradientSize={300} gradientColor="#7777ff" gradientOpacity={0.06}>
-              <div className="inline-block bg-purple-600 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">Most Popular</div>
-              <h3 className="text-2xl font-semibold mb-1.5 text-white/95">AI Visibility Rebuild</h3>
-              <div className="text-5xl font-light tracking-tight mb-1 text-white/95">$2,500</div>
-              <div className="text-sm text-white/40 mb-8 font-medium">One-time. Live in 7 days.</div>
-              <ul className="space-y-3.5 text-sm text-white/55 mb-9 leading-relaxed">
-                <li>✓ Premium website redesign</li>
-                <li>✓ Local SEO structure</li>
-                <li>✓ AI search optimization</li>
-                <li>✓ Missed-call capture system</li>
-                <li>✓ Booking integration</li>
-                <li>✓ Review automation setup</li>
-                <li>✓ Speed & mobile optimization</li>
-                <li>✓ 30-day performance guarantee</li>
-              </ul>
-              <a href="#apply"><ShinyButton className="w-full py-4 text-base font-semibold rounded-xl">Request an AI Growth Audit</ShinyButton></a>
-            </MagicCard>
+            <div className="relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white/[0.03] border-2 border-purple-500/30 shadow-[0_0_40px_-12px_rgba(124,58,237,0.15)] hover:border-purple-400/50 hover:shadow-[0_0_60px_-12px_rgba(124,58,237,0.25)] transition-all duration-500">
+              <div>
+                <div className="inline-block bg-purple-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">Most Popular</div>
+                <h3 className="text-[40px] font-bold tracking-tight mb-1 text-white">AI Visibility Rebuild</h3>
+                <div className="text-[72px] font-light tracking-tight leading-none text-white mb-1">$2,500</div>
+                <p className="text-sm text-white/40 font-medium mb-8">One-time. Live in 7 days.</p>
+                <ul className="space-y-3.5 mb-8">
+                  {["Premium website redesign","Local SEO structure","AI search optimization","Missed-call capture system","Booking integration","Review automation setup","Speed & mobile optimization","30-day performance guarantee"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/65 leading-relaxed">
+                      <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href="#apply" className="flex items-center justify-center h-14 w-full rounded-2xl bg-white text-[#111] border-2 border-white text-base font-bold hover:bg-[#5B3DFF] hover:text-white hover:border-[#5B3DFF] transition-all duration-200 hover:shadow-lg hover:shadow-[#5B3DFF]/25">
+                Request an AI Growth Audit
+              </a>
+            </div>
           </BlurFade>
+
+          {/* Secondary Card */}
           <BlurFade delay={0.2}>
-            <MagicCard className="p-9 border-white/[0.08] bg-white/[0.01] hover:border-white/20 transition-all duration-300" gradientSize={200} gradientColor="#5555ff" gradientOpacity={0.03}>
-              <h3 className="text-2xl font-semibold mb-1.5 text-white/90">Growth Maintenance</h3>
-              <div className="text-5xl font-light tracking-tight mb-1 text-white/90">$500</div>
-              <div className="text-sm text-white/40 mb-8 font-medium">per month. Cancel anytime.</div>
-              <ul className="space-y-3.5 text-sm text-white/55 mb-9 leading-relaxed">
-                <li>✓ Ongoing SEO updates</li>
-                <li>✓ AI content & posting</li>
-                <li>✓ Review monitoring & responses</li>
-                <li>✓ System health monitoring</li>
-                <li>✓ Lead optimization</li>
-                <li>✓ Conversion improvements</li>
-                <li>✓ Monthly performance report</li>
-              </ul>
-              <a href="#apply" className="block w-full text-center py-4 text-base font-semibold rounded-xl border-2 border-white/25 text-white/75 hover:text-white hover:border-white/50 hover:bg-white/[0.06] transition-all duration-200">Get Started</a>
-            </MagicCard>
+            <div className="relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white/[0.01] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.03] shadow-[0_0_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-300">
+              <div>
+                <div className="h-[27px] mb-5" />
+                <h3 className="text-[40px] font-bold tracking-tight mb-1 text-white/90">Growth Maintenance</h3>
+                <div className="text-[72px] font-light tracking-tight leading-none text-white/90 mb-1">$500</div>
+                <p className="text-sm text-white/40 font-medium mb-8">per month. Cancel anytime.</p>
+                <ul className="space-y-3.5 mb-8">
+                  {["Ongoing SEO updates","AI content & posting","Review monitoring & responses","System health monitoring","Lead optimization","Conversion improvements","Monthly performance report"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/55 leading-relaxed">
+                      <span className="text-white/30 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href="#apply" className="flex items-center justify-center h-14 w-full rounded-2xl bg-white text-[#111] border-2 border-white text-base font-bold hover:bg-[#5B3DFF] hover:text-white hover:border-[#5B3DFF] transition-all duration-200 hover:shadow-lg hover:shadow-[#5B3DFF]/25">
+                Get Started
+              </a>
+            </div>
           </BlurFade>
         </div>
         <BlurFade delay={0.3}>
-          <p className="text-center text-sm text-white/35 mt-9">Need full AI infrastructure? <a href="#apply" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors underline decoration-purple-500/30 underline-offset-4">Apply for a custom audit and quote.</a></p>
+          <p className="text-center text-sm text-white/35 mt-8">Need full AI infrastructure? <a href="#apply" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors underline decoration-purple-500/30 underline-offset-4">Apply for a custom audit and quote.</a></p>
         </BlurFade>
       </section>
 
