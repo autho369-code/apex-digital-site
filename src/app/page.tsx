@@ -6,6 +6,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { MagicCard } from "@/components/ui/magic-card";
 import { Particles } from "@/components/ui/particles";
+import { AIAdvisor } from "@/components/ai-advisor";
 
 const services = [
   { num: "01", title: "AI Voice Receptionist", desc: "Answers every call instantly — 2AM or Tuesday noon. Books appointments, provides quotes, handles FAQs. Never misses a call." },
@@ -395,6 +396,8 @@ export default function Home() {
         <p className="text-sm text-white/25 font-medium">Apex Digital &copy; 2025. AI Growth Infrastructure.</p>
         <a href="mailto:autho369@gmail.com" className="text-sm text-white/35 hover:text-white/60 font-medium transition-colors mt-2 inline-block">autho369@gmail.com</a>
       </footer>
+
+      <AIAdvisor />
     </div>
   );
 }
