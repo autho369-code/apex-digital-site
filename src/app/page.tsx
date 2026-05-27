@@ -145,10 +145,11 @@ export default function Home() {
                 <h3 className="text-lg font-semibold mb-2.5 tracking-tight text-white/90">{s.title}</h3>
                 <p className="text-sm text-white/45 leading-relaxed mb-4">{s.desc}</p>
                 <div className="mt-auto pt-4 border-t border-white/[0.06]">
-                  <div className="text-xs font-medium text-white/35">
-                    {i === 1 && "Included in rebuild or advanced SEO plans"}
-                    {i === 4 && "Custom setup"}
-                    {i === 5 && "Foundation package"}
+                  <div className="text-[10px] font-semibold text-white/25 uppercase tracking-wider mb-1">
+                    {i === 1 || i === 5 ? "Included in rebuild package" : "Available Add-On System"}
+                  </div>
+                  <div className="text-xs font-medium text-white/40">
+                    {(i === 0 || i === 2 || i === 3 || i === 4) && "Custom setup"}
                   </div>
                 </div>
               </MagicCard>
