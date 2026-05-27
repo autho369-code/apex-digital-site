@@ -131,18 +131,30 @@ export default function Home() {
       <section id="services" className="relative py-24 px-6 max-w-6xl mx-auto">
         <BlurFade>
           <div className="text-center mb-16">
-            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">What We Build</div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Six AI systems. One platform.</h2>
-            <p className="text-white/45 max-w-lg mx-auto text-base">AI reception. Booking automation. Review systems. Search visibility. AI content. High-performance websites.</p>
+            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">AI Growth Infrastructure Modules</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Every business has different operational bottlenecks.</h2>
+            <p className="text-white/45 max-w-xl mx-auto text-base mb-3">We build modular AI systems that can be deployed individually or layered together over time.</p>
+            <p className="text-white/30 max-w-lg mx-auto text-sm">Most clients start with the AI Visibility Rebuild, then expand into additional automation systems as they grow.</p>
           </div>
         </BlurFade>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <BlurFade key={s.num} delay={0.1 * i}>
-              <MagicCard className="p-7 border-white/[0.08] bg-white/[0.02] hover:border-purple-500/30 hover:bg-white/[0.04] transition-all duration-300" gradientSize={200} gradientColor="#6666ff" gradientOpacity={0.04}>
+              <MagicCard className="flex flex-col p-7 border-white/[0.08] bg-white/[0.02] hover:border-purple-500/30 hover:bg-white/[0.04] transition-all duration-300" gradientSize={200} gradientColor="#6666ff" gradientOpacity={0.04}>
                 <div className="text-xs font-semibold text-purple-400 mb-3 tracking-wider">{s.num}</div>
                 <h3 className="text-lg font-semibold mb-2.5 tracking-tight text-white/90">{s.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-white/45 leading-relaxed mb-4">{s.desc}</p>
+                <div className="mt-auto pt-4 border-t border-white/[0.06]">
+                  <div className="text-[10px] font-semibold text-white/25 uppercase tracking-wider mb-1">Available Add-On System</div>
+                  <div className="text-xs font-medium text-white/40">
+                    {i === 0 && "Starting at $500/mo"}
+                    {i === 1 && "Included in rebuild or advanced SEO plans"}
+                    {i === 2 && "Starting at $300/mo"}
+                    {i === 3 && "Starting at $800/mo"}
+                    {i === 4 && "Custom setup"}
+                    {i === 5 && "Foundation package"}
+                  </div>
+                </div>
               </MagicCard>
             </BlurFade>
           ))}
@@ -161,7 +173,7 @@ export default function Home() {
           </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { num: "01", title: "Discovery & Build", desc: "One call to understand your business. Then we build all six AI systems, configured specifically to you, within 48 hours." },
+              { num: "01", title: "Discovery & Build", desc: "One call to understand your business. Then we build the right AI systems — configured specifically to your needs — within 48 hours." },
               { num: "02", title: "Go Live", desc: "Systems activate. AI answers calls. Reviews get managed. Content posts. Website goes live. You get a real-time dashboard." },
               { num: "03", title: "Optimize & Scale", desc: "Weekly performance reviews. We tune the AI based on real data. Every month the system gets smarter. You focus on the work." },
             ].map((step, i) => (
@@ -254,8 +266,9 @@ export default function Home() {
         <BlurFade>
           <div className="text-center mb-14">
             <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Pricing</div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Start with the rebuild. Keep growing with maintenance.</h2>
-            <p className="text-white/45 text-base max-w-xl mx-auto">Most clients begin with the AI Visibility Rebuild, then continue with monthly optimization, content, reviews, SEO, and system monitoring.</p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Start with the foundation.</h2>
+            <p className="text-white/45 text-base max-w-xl mx-auto mb-3">Most businesses do not need six AI systems on day one. They need the right first system.</p>
+            <p className="text-white/35 text-sm max-w-xl mx-auto">The AI Visibility Rebuild modernizes your website, improves discoverability, captures more leads, and creates the foundation for future automation. Additional AI systems can be layered in over time based on business needs, lead volume, and operational goals.</p>
           </div>
         </BlurFade>
 
