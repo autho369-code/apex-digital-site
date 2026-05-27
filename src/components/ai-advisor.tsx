@@ -77,12 +77,12 @@ export function AIAdvisor() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  const send = (text: string) => {
+  const send = async (text: string) => {
     const userMsg: Message = { role: "user", content: text };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       let response: Message;
       const lower = text.toLowerCase();
 
@@ -95,7 +95,28 @@ export function AIAdvisor() {
       else if (text === "Outdated website") response = advisorMessages.recommendation_website;
       else if (text === "Show me everything") response = advisorMessages.recommendation_all;
       else if (lower.includes("http") || lower.includes("www") || lower.includes(".com")) {
-        response = { role: "advisor", content: `I've analyzed the structure of that site. Here's what I typically find with sites like this — and what we fix as part of an AI Visibility Rebuild.\n\nCommon issues: slow load times on mobile, no booking integration visible, weak schema markup (invisible to AI search), and no clear conversion path for emergency/service calls.\n\nThese are all fixable. Want me to explain how?`, options: ["Tell me how", "Show me what you offer"] };
+        // Real website analysis
+        setMessages(prev => [...prev, { role: "advisor", content: "Analyzing your website... This takes about 5 seconds." }]);
+        try {
+          const res = await fetch("/api/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: text.trim() }),
+          });
+          const data = await res.json();
+          if (data.error) {
+            response = { role: "advisor", content: `I couldn't analyze that URL: ${data.error}. Try pasting the full URL including https://.` };
+          } else {
+            const overallEmoji = data.overall <= 3 ? "🔴" : data.overall <= 6 ? "🟡" : "🟢";
+            response = {
+              role: "advisor",
+              content: `${overallEmoji} **Site Analysis: ${data.overall}/10**\n\nLoad time: ${(data.loadTime / 1000).toFixed(1)}s | Status: ${data.statusCode || "N/A"}\n\nKey findings:\n${data.findings.map((f: string) => `• ${f}`).join("\n")}\n\n${data.recommendation}`,
+              type: "recommendation",
+            };
+          }
+        } catch {
+          response = { role: "advisor", content: "I couldn't reach that site. It may be down or blocking automated analysis. Try pasting the full URL (including https://) or try a different site." };
+        }
       }
       else if (lower.includes("miss") || lower.includes("call") || lower.includes("after hour")) response = advisorMessages.recommendation_missed;
       else if (lower.includes("seo") || lower.includes("search") || lower.includes("google") || lower.includes("visible")) response = advisorMessages.recommendation_search;
