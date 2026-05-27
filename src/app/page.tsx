@@ -391,12 +391,6 @@ export default function Home() {
         </BlurFade>
       </section>
 
-      {/* FOOTER */}
-      <footer className="relative py-14 px-6 border-t border-white/[0.06] text-center">
-        <p className="text-sm text-white/25 font-medium">Portier AI &copy; 2025. AI Growth Infrastructure.</p>
-        <a href="mailto:autho369@gmail.com" className="text-sm text-white/35 hover:text-white/60 font-medium transition-colors mt-2 inline-block">autho369@gmail.com</a>
-      </footer>
-
       <AIAdvisor />
     </div>
   );

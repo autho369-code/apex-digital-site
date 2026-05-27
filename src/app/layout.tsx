@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,6 +16,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portier AI — AI Growth Infrastructure",
   description: "We build AI systems that capture more calls, book more jobs, and increase visibility for service-based businesses.",
+  metadataBase: new URL("https://portierai.com"),
+  openGraph: {
+    title: "Portier AI — AI Growth Infrastructure",
+    description: "We build AI systems that capture more calls, book more jobs, and increase visibility.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white font-sans`}>
         {children}
+        <Footer />
       </body>
     </html>
   );
