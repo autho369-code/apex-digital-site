@@ -34,16 +34,19 @@ const faqs = [
   { q: "Do you redesign existing websites?", a: "Yes — and most clients need it. The majority of business websites today are slow, outdated, poorly structured, and invisible in modern search. We rebuild them into high-performance growth systems." },
 ];
 
+const inputClasses = "w-full bg-white/[0.07] border border-white/20 rounded-xl px-5 py-4 text-base text-white placeholder:text-white/35 focus:border-purple-400 focus:ring-2 focus:ring-purple-500/20 focus:outline-none transition-all duration-200";
+const labelClasses = "block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2.5";
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <Particles className="absolute inset-0 z-0" quantity={50} ease={40} color="#4444ff" refresh />
+    <div className="relative min-h-screen overflow-hidden bg-black">
+      <Particles className="absolute inset-0 z-0 pointer-events-none" quantity={60} ease={50} color="#6666ff" refresh />
 
       {/* NAV */}
-      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/5">
+      <nav className="sticky top-0 z-50 backdrop-blur-2xl bg-black/60 border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
           <div className="text-lg font-semibold tracking-tight">Apex<span className="text-purple-400">Digital</span></div>
-          <a href="#apply" className="bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors">AI Growth Audit</a>
+          <a href="#apply" className="bg-purple-600 hover:bg-purple-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02]">AI Growth Audit</a>
         </div>
       </nav>
 
@@ -52,7 +55,7 @@ export default function Home() {
         <RetroGrid className="absolute inset-0 z-0 opacity-30" angle={65} />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <BlurFade delay={0.1}>
-            <div className="inline-block bg-purple-500/10 text-purple-300 text-xs font-medium px-3 py-1.5 rounded-full mb-8 tracking-wide uppercase">AI Growth Infrastructure</div>
+            <div className="inline-block bg-purple-500/[0.12] text-purple-300 text-xs font-semibold px-4 py-2 rounded-full mb-8 tracking-wide uppercase border border-purple-500/20">AI Growth Infrastructure</div>
           </BlurFade>
           <BlurFade delay={0.2}>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] mb-6">
@@ -62,21 +65,21 @@ export default function Home() {
             </h1>
           </BlurFade>
           <BlurFade delay={0.5}>
-            <p className="text-lg text-white/40 max-w-xl mx-auto mb-10 leading-relaxed">
+            <p className="text-lg text-white/50 max-w-xl mx-auto mb-10 leading-relaxed">
               AI receptionists, review systems, booking automation, AI-optimized websites, and visibility infrastructure for service-based businesses that want faster growth and fewer missed opportunities.
             </p>
           </BlurFade>
           <BlurFade delay={0.7}>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <a href="#apply"><ShinyButton className="px-8 py-3 text-base font-medium rounded-xl">Get an AI Growth Audit</ShinyButton></a>
-              <a href="#services" className="text-sm text-white/40 hover:text-white/70 transition-colors border border-white/10 rounded-xl px-6 py-3">Watch Demos</a>
+              <a href="#apply"><ShinyButton className="px-9 py-4 text-base font-semibold rounded-xl">Get an AI Growth Audit</ShinyButton></a>
+              <a href="#services" className="text-sm text-white/60 hover:text-white font-medium transition-all duration-200 border border-white/25 hover:border-white/40 rounded-xl px-7 py-4 hover:bg-white/[0.05]">Watch Demos</a>
             </div>
           </BlurFade>
           <BlurFade delay={1}>
-            <div className="flex justify-center gap-12 mt-16 text-center">
-              <div><div className="text-3xl font-light tracking-tight">48hr</div><div className="text-xs text-white/30 uppercase tracking-wider mt-1">To go live</div></div>
-              <div><div className="text-3xl font-light tracking-tight">$0</div><div className="text-xs text-white/30 uppercase tracking-wider mt-1">Setup fee</div></div>
-              <div><div className="text-3xl font-light tracking-tight">30d</div><div className="text-xs text-white/30 uppercase tracking-wider mt-1">Guarantee</div></div>
+            <div className="flex justify-center gap-14 mt-16 text-center">
+              <div><div className="text-3xl font-light tracking-tight text-white/80">48hr</div><div className="text-[11px] text-white/35 uppercase tracking-[0.15em] mt-1.5 font-medium">To go live</div></div>
+              <div><div className="text-3xl font-light tracking-tight text-white/80">$0</div><div className="text-[11px] text-white/35 uppercase tracking-[0.15em] mt-1.5 font-medium">Setup fee</div></div>
+              <div><div className="text-3xl font-light tracking-tight text-white/80">30d</div><div className="text-[11px] text-white/35 uppercase tracking-[0.15em] mt-1.5 font-medium">Guarantee</div></div>
             </div>
           </BlurFade>
         </div>
@@ -86,18 +89,18 @@ export default function Home() {
       <section id="services" className="relative py-24 px-6 max-w-6xl mx-auto">
         <BlurFade>
           <div className="text-center mb-16">
-            <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">What We Build</div>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-4">Six AI systems. One platform.</h2>
-            <p className="text-white/40 max-w-lg mx-auto">AI reception. Booking automation. Review systems. Search visibility. AI content. High-performance websites.</p>
+            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">What We Build</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Six AI systems. One platform.</h2>
+            <p className="text-white/45 max-w-lg mx-auto text-base">AI reception. Booking automation. Review systems. Search visibility. AI content. High-performance websites.</p>
           </div>
         </BlurFade>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <BlurFade key={s.num} delay={0.1 * i}>
-              <MagicCard className="p-6 border-white/5 bg-white/[0.02] hover:border-purple-500/20 transition-colors" gradientSize={200} gradientColor="#3333ff" gradientOpacity={0.03}>
-                <div className="text-xs font-medium text-purple-400 mb-3">{s.num}</div>
-                <h3 className="text-lg font-medium mb-2 tracking-tight">{s.title}</h3>
-                <p className="text-sm text-white/40 leading-relaxed">{s.desc}</p>
+              <MagicCard className="p-7 border-white/[0.08] bg-white/[0.02] hover:border-purple-500/30 hover:bg-white/[0.04] transition-all duration-300" gradientSize={200} gradientColor="#6666ff" gradientOpacity={0.04}>
+                <div className="text-xs font-semibold text-purple-400 mb-3 tracking-wider">{s.num}</div>
+                <h3 className="text-lg font-semibold mb-2.5 tracking-tight text-white/90">{s.title}</h3>
+                <p className="text-sm text-white/45 leading-relaxed">{s.desc}</p>
               </MagicCard>
             </BlurFade>
           ))}
@@ -105,13 +108,13 @@ export default function Home() {
       </section>
 
       {/* PROCESS */}
-      <section className="relative py-24 px-6 border-y border-white/5">
+      <section className="relative py-24 px-6 border-y border-white/[0.06] bg-white/[0.01]">
         <div className="max-w-5xl mx-auto">
           <BlurFade>
             <div className="text-center mb-16">
-              <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">How We Work</div>
-              <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-4">Live in 48 hours. Scaling in 30 days.</h2>
-              <p className="text-white/40">No 6-week onboarding. No meetings about meetings.</p>
+              <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">How We Work</div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Live in 48 hours. Scaling in 30 days.</h2>
+              <p className="text-white/45">No 6-week onboarding. No meetings about meetings.</p>
             </div>
           </BlurFade>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -121,10 +124,10 @@ export default function Home() {
               { num: "03", title: "Optimize & Scale", desc: "Weekly performance reviews. We tune the AI based on real data. Every month the system gets smarter. You focus on the work." },
             ].map((step, i) => (
               <BlurFade key={step.num} delay={0.1 * i}>
-                <div className="text-center p-8 border border-white/5 rounded-2xl bg-white/[0.01]">
-                  <div className="text-5xl font-thin text-purple-400 mb-4">{step.num}</div>
-                  <h3 className="text-lg font-medium mb-3">{step.title}</h3>
-                  <p className="text-sm text-white/40 leading-relaxed">{step.desc}</p>
+                <div className="text-center p-8 border border-white/[0.08] rounded-2xl bg-white/[0.02] hover:border-white/[0.15] transition-all duration-300">
+                  <div className="text-5xl font-thin text-purple-400 mb-5">{step.num}</div>
+                  <h3 className="text-lg font-semibold mb-3 text-white/90">{step.title}</h3>
+                  <p className="text-sm text-white/45 leading-relaxed">{step.desc}</p>
                 </div>
               </BlurFade>
             ))}
@@ -135,17 +138,17 @@ export default function Home() {
       {/* TESTIMONIALS */}
       <section className="relative py-24 overflow-hidden">
         <BlurFade>
-          <div className="text-center mb-12 max-w-6xl mx-auto px-6">
-            <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">Results</div>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-4">What this looks like in practice.</h2>
+          <div className="text-center mb-14 max-w-6xl mx-auto px-6">
+            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Results</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">What this looks like in practice.</h2>
           </div>
         </BlurFade>
         <Marquee pauseOnHover className="[--duration:40s]">
           {testimonials.map((t, i) => (
-            <MagicCard key={i} className="w-80 p-6 mx-3 border-white/5 bg-white/[0.02] flex-shrink-0" gradientSize={150} gradientColor="#3333ff" gradientOpacity={0.02}>
-              <p className="text-sm text-white/60 italic leading-relaxed mb-4">&ldquo;{t.quote}&rdquo;</p>
-              <div className="text-sm font-medium">{t.author}</div>
-              <div className="text-xs text-white/30">{t.role}</div>
+            <MagicCard key={i} className="w-[340px] p-7 mx-3 border-white/[0.08] bg-white/[0.02] flex-shrink-0" gradientSize={150} gradientColor="#6666ff" gradientOpacity={0.03}>
+              <p className="text-sm text-white/55 italic leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
+              <div className="text-sm font-semibold text-white/80">{t.author}</div>
+              <div className="text-xs text-white/35 mt-0.5">{t.role}</div>
             </MagicCard>
           ))}
         </Marquee>
@@ -155,19 +158,19 @@ export default function Home() {
       <section className="relative py-24 px-6 max-w-4xl mx-auto">
         <BlurFade>
           <div className="text-center mb-16">
-            <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">Pricing</div>
-            <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-4">Start with a rebuild. Scale from there.</h2>
-            <p className="text-white/40">One-time investment to modernize everything. Optional monthly maintenance to keep it running.</p>
+            <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Pricing</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">Start with a rebuild. Scale from there.</h2>
+            <p className="text-white/45 text-base">One-time investment to modernize everything. Optional monthly maintenance to keep it running.</p>
           </div>
         </BlurFade>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <BlurFade delay={0.1}>
-            <MagicCard className="p-8 border-purple-500/20 bg-white/[0.02]" gradientSize={300} gradientColor="#4444ff" gradientOpacity={0.05}>
-              <div className="inline-block bg-purple-600 text-white text-xs font-medium px-3 py-1 rounded-full mb-4">Most Popular</div>
-              <h3 className="text-xl font-medium mb-1">AI Visibility Rebuild</h3>
-              <div className="text-4xl font-light tracking-tight mb-1">$2,500</div>
-              <div className="text-sm text-white/30 mb-8">One-time. Live in 7 days.</div>
-              <ul className="space-y-3 text-sm text-white/50 mb-8">
+            <MagicCard className="p-9 border-purple-500/25 bg-white/[0.02] hover:border-purple-400/40 transition-all duration-300" gradientSize={300} gradientColor="#7777ff" gradientOpacity={0.06}>
+              <div className="inline-block bg-purple-600 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">Most Popular</div>
+              <h3 className="text-2xl font-semibold mb-1.5 text-white/95">AI Visibility Rebuild</h3>
+              <div className="text-5xl font-light tracking-tight mb-1 text-white/95">$2,500</div>
+              <div className="text-sm text-white/40 mb-8 font-medium">One-time. Live in 7 days.</div>
+              <ul className="space-y-3.5 text-sm text-white/55 mb-9 leading-relaxed">
                 <li>✓ Premium website redesign</li>
                 <li>✓ Local SEO structure</li>
                 <li>✓ AI search optimization</li>
@@ -177,15 +180,15 @@ export default function Home() {
                 <li>✓ Speed & mobile optimization</li>
                 <li>✓ 30-day performance guarantee</li>
               </ul>
-              <a href="#apply"><ShinyButton className="w-full py-3 text-sm font-medium rounded-xl">Get an AI Growth Audit</ShinyButton></a>
+              <a href="#apply"><ShinyButton className="w-full py-4 text-base font-semibold rounded-xl">Get an AI Growth Audit</ShinyButton></a>
             </MagicCard>
           </BlurFade>
           <BlurFade delay={0.2}>
-            <MagicCard className="p-8 border-white/5 bg-white/[0.01]" gradientSize={200} gradientColor="#3333ff" gradientOpacity={0.02}>
-              <h3 className="text-xl font-medium mb-1">Growth Maintenance</h3>
-              <div className="text-4xl font-light tracking-tight mb-1">$500</div>
-              <div className="text-sm text-white/30 mb-8">per month. Cancel anytime.</div>
-              <ul className="space-y-3 text-sm text-white/50 mb-8">
+            <MagicCard className="p-9 border-white/[0.08] bg-white/[0.01] hover:border-white/20 transition-all duration-300" gradientSize={200} gradientColor="#5555ff" gradientOpacity={0.03}>
+              <h3 className="text-2xl font-semibold mb-1.5 text-white/90">Growth Maintenance</h3>
+              <div className="text-5xl font-light tracking-tight mb-1 text-white/90">$500</div>
+              <div className="text-sm text-white/40 mb-8 font-medium">per month. Cancel anytime.</div>
+              <ul className="space-y-3.5 text-sm text-white/55 mb-9 leading-relaxed">
                 <li>✓ Ongoing SEO updates</li>
                 <li>✓ AI content & posting</li>
                 <li>✓ Review monitoring & responses</li>
@@ -194,69 +197,69 @@ export default function Home() {
                 <li>✓ Conversion improvements</li>
                 <li>✓ Monthly performance report</li>
               </ul>
-              <a href="#apply" className="block w-full text-center py-3 text-sm font-medium rounded-xl border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition-colors">Get Started</a>
+              <a href="#apply" className="block w-full text-center py-4 text-base font-semibold rounded-xl border-2 border-white/25 text-white/75 hover:text-white hover:border-white/50 hover:bg-white/[0.06] transition-all duration-200">Get Started</a>
             </MagicCard>
           </BlurFade>
         </div>
         <BlurFade delay={0.3}>
-          <p className="text-center text-sm text-white/30 mt-8">Need full AI infrastructure? <a href="#apply" className="text-purple-400 hover:text-purple-300 transition-colors">Apply for a custom audit and quote.</a></p>
+          <p className="text-center text-sm text-white/35 mt-9">Need full AI infrastructure? <a href="#apply" className="text-purple-400 hover:text-purple-300 font-semibold transition-colors underline decoration-purple-500/30 underline-offset-4">Apply for a custom audit and quote.</a></p>
         </BlurFade>
       </section>
 
       {/* FAQ */}
-      <section className="relative py-24 px-6 border-y border-white/5">
+      <section className="relative py-24 px-6 border-y border-white/[0.06] bg-white/[0.01]">
         <div className="max-w-3xl mx-auto">
           <BlurFade>
             <div className="mb-16">
-              <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">FAQ</div>
-              <h2 className="text-3xl sm:text-4xl font-light tracking-tight">What serious business owners ask before they scale</h2>
+              <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">FAQ</div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight">What serious business owners ask before they scale</h2>
             </div>
           </BlurFade>
-          <div className="space-y-10">
+          <div className="space-y-12">
             {faqs.map((faq, i) => (
               <BlurFade key={i} delay={0.05 * i}>
                 <div>
-                  <h3 className="text-xl font-medium mb-3">{faq.q}</h3>
-                  <p className="text-white/40 leading-relaxed max-w-xl">{faq.a}</p>
+                  <h3 className="text-xl font-semibold mb-3.5 text-white/90">{faq.q}</h3>
+                  <p className="text-white/45 leading-relaxed max-w-xl text-base">{faq.a}</p>
                 </div>
               </BlurFade>
             ))}
           </div>
           <BlurFade delay={0.5}>
-            <div className="mt-20 pt-12 border-t border-white/5">
-              <p className="text-2xl font-light tracking-tight text-white/60 mb-8 max-w-lg leading-relaxed">The businesses adopting AI infrastructure today will dominate local markets tomorrow.</p>
-              <a href="#apply"><ShinyButton className="px-8 py-3 text-base font-medium rounded-xl">Apply for a Free AI Growth Audit</ShinyButton></a>
+            <div className="mt-20 pt-14 border-t border-white/[0.08]">
+              <p className="text-2xl font-light tracking-tight text-white/65 mb-10 max-w-lg leading-relaxed">The businesses adopting AI infrastructure today will dominate local markets tomorrow.</p>
+              <a href="#apply"><ShinyButton className="px-10 py-4 text-lg font-semibold rounded-xl">Apply for a Free AI Growth Audit</ShinyButton></a>
             </div>
           </BlurFade>
         </div>
       </section>
 
       {/* APPLICATION FORM */}
-      <section id="apply" className="relative py-24 px-6 max-w-lg mx-auto text-center">
+      <section id="apply" className="relative py-24 px-6 max-w-xl mx-auto text-center">
         <BlurFade>
-          <div className="text-xs font-medium text-purple-400 uppercase tracking-widest mb-4">Apply</div>
-          <h2 className="text-3xl sm:text-4xl font-light tracking-tight mb-4">We only onboard 3 businesses per month.</h2>
-          <p className="text-white/40 mb-10">Fill out the form. We review every application within 24 hours. No sales call. No pressure.</p>
+          <div className="text-xs font-semibold text-purple-400 uppercase tracking-[0.2em] mb-4">Apply</div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight mb-4">We only onboard 3 businesses per month.</h2>
+          <p className="text-white/45 mb-12 text-base">Fill out the form. We review every application within 24 hours. No sales call. No pressure.</p>
         </BlurFade>
         <BlurFade delay={0.2}>
-          <MagicCard className="p-8 border-white/5 bg-white/[0.02] text-left" gradientSize={300} gradientColor="#3333ff" gradientOpacity={0.03}>
-            <form action="mailto:autho369@gmail.com?subject=Apex%20Digital%20Application" method="post" encType="text/plain" className="space-y-5">
-              <div><label className="block text-xs font-medium text-white/30 uppercase tracking-wider mb-2">Your Name</label><input name="Name" required className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-purple-500/50 focus:outline-none transition-colors" placeholder="John Smith" /></div>
-              <div><label className="block text-xs font-medium text-white/30 uppercase tracking-wider mb-2">Company Name</label><input name="Company" required className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-purple-500/50 focus:outline-none transition-colors" placeholder="Smith Plumbing & HVAC" /></div>
-              <div><label className="block text-xs font-medium text-white/30 uppercase tracking-wider mb-2">Business Type</label><input name="Business" className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-purple-500/50 focus:outline-none transition-colors" placeholder="e.g. plumbing, dental, salon, restaurant..." /></div>
-              <div><label className="block text-xs font-medium text-white/30 uppercase tracking-wider mb-2">Email</label><input type="email" name="Email" required className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-purple-500/50 focus:outline-none transition-colors" placeholder="you@company.com" /></div>
-              <div><label className="block text-xs font-medium text-white/30 uppercase tracking-wider mb-2">Biggest challenge right now</label><textarea name="Challenge" rows={3} className="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:border-purple-500/50 focus:outline-none transition-colors resize-none" placeholder="e.g. missing after-hours calls, not enough leads..." /></div>
-              <button type="submit" className="w-full bg-purple-600 hover:bg-purple-500 text-white font-medium py-3.5 rounded-xl transition-colors text-sm">Submit Application</button>
-              <p className="text-xs text-white/15 text-center">We respond within 24 hours. No spam. No sales calls.</p>
+          <MagicCard className="p-9 border-white/[0.08] bg-white/[0.02] text-left" gradientSize={300} gradientColor="#6666ff" gradientOpacity={0.04}>
+            <form action="mailto:autho369@gmail.com?subject=Apex%20Digital%20Application" method="post" encType="text/plain" className="space-y-6">
+              <div><label className={labelClasses}>Your Name</label><input name="Name" required className={inputClasses} placeholder="John Smith" /></div>
+              <div><label className={labelClasses}>Company Name</label><input name="Company" required className={inputClasses} placeholder="Smith Plumbing & HVAC" /></div>
+              <div><label className={labelClasses}>Business Type</label><input name="Business" className={inputClasses} placeholder="e.g. plumbing, dental, salon, restaurant..." /></div>
+              <div><label className={labelClasses}>Email</label><input type="email" name="Email" required className={inputClasses} placeholder="you@company.com" /></div>
+              <div><label className={labelClasses}>Biggest challenge right now</label><textarea name="Challenge" rows={3} className={`${inputClasses} resize-none`} placeholder="e.g. missing after-hours calls, not enough leads..." /></div>
+              <button type="submit" className="w-full bg-purple-600 hover:bg-purple-500 text-white font-semibold py-4 rounded-xl transition-all duration-200 text-base hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.01] focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">Submit Application</button>
+              <p className="text-xs text-white/25 text-center pt-1">We respond within 24 hours. No spam. No sales calls.</p>
             </form>
           </MagicCard>
         </BlurFade>
       </section>
 
       {/* FOOTER */}
-      <footer className="relative py-12 px-6 border-t border-white/5 text-center">
-        <p className="text-sm text-white/20">Apex Digital &copy; 2025. AI Growth Infrastructure.</p>
-        <a href="mailto:autho369@gmail.com" className="text-sm text-white/30 hover:text-white/50 transition-colors mt-2 inline-block">autho369@gmail.com</a>
+      <footer className="relative py-14 px-6 border-t border-white/[0.06] text-center">
+        <p className="text-sm text-white/25 font-medium">Apex Digital &copy; 2025. AI Growth Infrastructure.</p>
+        <a href="mailto:autho369@gmail.com" className="text-sm text-white/35 hover:text-white/60 font-medium transition-colors mt-2 inline-block">autho369@gmail.com</a>
       </footer>
     </div>
   );
