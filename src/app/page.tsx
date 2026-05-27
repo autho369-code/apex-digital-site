@@ -102,8 +102,19 @@ export default function Home() {
           </BlurFade>
           <BlurFade delay={0.7}>
             <div className="flex items-center justify-center gap-4 flex-wrap">
-              <a href="#apply"><ShinyButton className="px-9 py-4 text-base font-semibold rounded-xl">Get an AI Growth Audit</ShinyButton></a>
-              <a href="#services" className="text-sm text-white/60 hover:text-white font-medium transition-all duration-200 border border-white/25 hover:border-white/40 rounded-xl px-7 py-4 hover:bg-white/[0.05]">Watch Demos</a>
+              <a href="#apply"><ShinyButton className="px-9 py-4 text-base font-semibold rounded-xl">Request an AI Growth Audit</ShinyButton></a>
+              <button
+                onClick={() => {
+                  const advisor = document.querySelector('[class*="fixed bottom-6 right-6"]');
+                  if (advisor instanceof HTMLElement) advisor.click();
+                }}
+                className="relative overflow-hidden text-sm text-white font-semibold transition-all duration-300 border-2 border-purple-500/60 hover:border-purple-400 rounded-xl px-7 py-4 bg-purple-500/10 hover:bg-purple-500/20 hover:shadow-lg hover:shadow-purple-500/15 group"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Analyze My Website
+                  <span className="text-[10px] bg-purple-500/30 text-purple-200 px-2 py-0.5 rounded-full font-bold tracking-wide group-hover:bg-purple-400/40 transition-colors">FREE</span>
+                </span>
+              </button>
             </div>
           </BlurFade>
           <BlurFade delay={1}>
@@ -264,7 +275,7 @@ export default function Home() {
                 <li>✓ Speed & mobile optimization</li>
                 <li>✓ 30-day performance guarantee</li>
               </ul>
-              <a href="#apply"><ShinyButton className="w-full py-4 text-base font-semibold rounded-xl">Get an AI Growth Audit</ShinyButton></a>
+              <a href="#apply"><ShinyButton className="w-full py-4 text-base font-semibold rounded-xl">Request an AI Growth Audit</ShinyButton></a>
             </MagicCard>
           </BlurFade>
           <BlurFade delay={0.2}>
