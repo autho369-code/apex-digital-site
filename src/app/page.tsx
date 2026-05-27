@@ -143,18 +143,7 @@ export default function Home() {
               <MagicCard className="flex flex-col p-7 border-white/[0.08] bg-white/[0.02] hover:border-purple-500/30 hover:bg-white/[0.04] transition-all duration-300" gradientSize={200} gradientColor="#6666ff" gradientOpacity={0.04}>
                 <div className="text-xs font-semibold text-purple-400 mb-3 tracking-wider">{s.num}</div>
                 <h3 className="text-lg font-semibold mb-2.5 tracking-tight text-white/90">{s.title}</h3>
-                <p className="text-sm text-white/45 leading-relaxed mb-4">{s.desc}</p>
-                <div className="mt-auto pt-4 border-t border-white/[0.06]">
-                  <div className="text-[10px] font-semibold text-white/25 uppercase tracking-wider mb-1">Available Add-On System</div>
-                  <div className="text-xs font-medium text-white/40">
-                    {i === 0 && "Starting at $500/mo"}
-                    {i === 1 && "Included in rebuild or advanced SEO plans"}
-                    {i === 2 && "Starting at $300/mo"}
-                    {i === 3 && "Starting at $800/mo"}
-                    {i === 4 && "Custom setup"}
-                    {i === 5 && "Foundation package"}
-                  </div>
-                </div>
+                <p className="text-sm text-white/45 leading-relaxed">{s.desc}</p>
               </MagicCard>
             </BlurFade>
           ))}
