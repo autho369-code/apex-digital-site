@@ -259,32 +259,36 @@ export default function Home() {
           </div>
         </BlurFade>
 
-        <div className="flex flex-col md:flex-row gap-4 items-start">
+        <div className="flex flex-col md:flex-row gap-4 items-stretch">
           {/* PHASE 1 — Primary */}
           <BlurFade delay={0.1}>
-            <div className="flex-1 md:flex-[58] rounded-2xl bg-white/[0.03] border-2 border-purple-500/30 shadow-[0_0_40px_-12px_rgba(124,58,237,0.15)] hover:border-purple-400/50 hover:shadow-[0_0_60px_-12px_rgba(124,58,237,0.25)] transition-all duration-500 p-8 sm:p-10">
-              <div className="inline-block bg-purple-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">Most Popular</div>
-              <h3 className="text-xl font-semibold text-white/50 tracking-wide uppercase text-[11px] mb-1">Phase 1</h3>
-              <div className="text-[40px] font-bold tracking-tight mb-1 text-white">AI Visibility Rebuild</div>
-              <div className="text-[60px] sm:text-[72px] font-light tracking-tight leading-none text-white mb-1">$2,500</div>
-              <p className="text-sm text-white/40 font-medium mb-8">One-time project. Live in 7 days.</p>
-              <ul className="space-y-3.5 mb-8">
-                {["Premium website redesign","Local SEO structure","AI search optimization","Missed-call capture setup","Booking integration","Review automation setup","Speed and mobile optimization","30-day performance guarantee"].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-white/65 leading-relaxed">
-                    <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="#apply" className="flex items-center justify-center h-14 w-full rounded-2xl bg-[#6D28D9] hover:bg-[#7C3AED] text-white text-base font-bold transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25">
-                Request an AI Growth Audit
-              </a>
+            <div className="flex flex-col h-full flex-[58] rounded-2xl bg-white/[0.03] border-2 border-purple-500/30 shadow-[0_0_40px_-12px_rgba(124,58,237,0.15)] hover:border-purple-400/50 hover:shadow-[0_0_60px_-12px_rgba(124,58,237,0.25)] transition-all duration-500 p-8 sm:p-10">
+              <div className="flex-1">
+                <div className="inline-block bg-purple-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">Most Popular</div>
+                <h3 className="text-xl font-semibold text-white/50 tracking-wide uppercase text-[11px] mb-1">Phase 1</h3>
+                <div className="text-[40px] font-bold tracking-tight mb-1 text-white">AI Visibility Rebuild</div>
+                <div className="text-[60px] sm:text-[72px] font-light tracking-tight leading-none text-white mb-1">$2,500</div>
+                <p className="text-sm text-white/40 font-medium mb-8">One-time project. Live in 7 days.</p>
+                <ul className="space-y-3.5 mb-8">
+                  {["Premium website redesign","Local SEO structure","AI search optimization","Missed-call capture setup","Booking integration","Review automation setup","Speed and mobile optimization","30-day performance guarantee"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/65 leading-relaxed">
+                      <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-auto">
+                <a href="#apply" className="flex items-center justify-center h-16 w-full rounded-2xl bg-[#6D28D9] hover:bg-[#7C3AED] text-white text-base font-bold transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25">
+                  Request an AI Growth Audit
+                </a>
+              </div>
             </div>
           </BlurFade>
 
           {/* Connector */}
           <BlurFade delay={0.15}>
-            <div className="hidden md:flex items-center justify-center w-12 flex-shrink-0 pt-6">
+            <div className="hidden md:flex items-center justify-center w-10 flex-shrink-0">
               <div className="flex flex-col items-center gap-1 text-white/15">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 <span className="text-[9px] font-medium uppercase tracking-widest whitespace-nowrap">Build first</span>
@@ -295,23 +299,27 @@ export default function Home() {
 
           {/* PHASE 2 — Secondary */}
           <BlurFade delay={0.2}>
-            <div className="flex-1 md:flex-[42] rounded-2xl bg-white/[0.01] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300 p-8 sm:p-10">
-              <div className="inline-block bg-white/[0.06] text-white/50 text-[11px] font-bold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">Optional Monthly Support</div>
-              <h3 className="text-xl font-semibold text-white/50 tracking-wide uppercase text-[11px] mb-1">Phase 2</h3>
-              <div className="text-[40px] font-bold tracking-tight mb-1 text-white/90">Growth Maintenance</div>
-              <div className="text-[60px] sm:text-[72px] font-light tracking-tight leading-none text-white/90 mb-1">$500<span className="text-2xl font-light text-white/40">/mo</span></div>
-              <p className="text-sm text-white/40 font-medium mb-8">Keep improving after launch.</p>
-              <ul className="space-y-3.5 mb-8">
-                {["Ongoing SEO updates","AI content and posting","Review monitoring","System health monitoring","Lead optimization","Conversion improvements","Monthly performance report"].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-white/55 leading-relaxed">
-                    <span className="text-white/30 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="#apply" className="flex items-center justify-center h-14 w-full rounded-2xl bg-[#6D28D9] hover:bg-[#7C3AED] text-white text-base font-bold transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25">
-                Add Monthly Growth Support
-              </a>
+            <div className="flex flex-col h-full flex-[42] rounded-2xl bg-white/[0.01] border border-white/[0.08] hover:border-white/20 hover:bg-white/[0.03] transition-all duration-300 p-8 sm:p-10">
+              <div className="flex-1">
+                <div className="inline-block bg-white/[0.06] text-white/50 text-[11px] font-bold px-3 py-1.5 rounded-full mb-5 tracking-wide uppercase">Optional Monthly Support</div>
+                <h3 className="text-xl font-semibold text-white/50 tracking-wide uppercase text-[11px] mb-1">Phase 2</h3>
+                <div className="text-[40px] font-bold tracking-tight mb-1 text-white/90">Growth Maintenance</div>
+                <div className="text-[60px] sm:text-[72px] font-light tracking-tight leading-none text-white/90 mb-1">$500<span className="text-2xl font-light text-white/40">/mo</span></div>
+                <p className="text-sm text-white/40 font-medium mb-8">Keep improving after launch.</p>
+                <ul className="space-y-3.5 mb-8">
+                  {["Ongoing SEO updates","AI content and posting","Review monitoring","System health monitoring","Lead optimization","Conversion improvements","Monthly performance report"].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-white/55 leading-relaxed">
+                      <span className="text-white/30 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-auto">
+                <a href="#apply" className="flex items-center justify-center h-16 w-full rounded-2xl bg-[#6D28D9] hover:bg-[#7C3AED] text-white text-base font-bold transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25">
+                  Add Monthly Growth Support
+                </a>
+              </div>
             </div>
           </BlurFade>
         </div>
