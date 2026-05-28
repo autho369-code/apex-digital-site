@@ -36,9 +36,9 @@ const legalLinks = [
 ];
 
 const trustBadges = [
-  { label: "Secure AI Infrastructure", icon: "🔒", desc: "TLS 1.3 · AES-256" },
-  { label: "Privacy-Focused Systems", icon: "🛡️", desc: "Data minimization" },
-  { label: "Enterprise-Ready", icon: "⚡", desc: "SOC 2 aligned" },
+  { label: "Secure AI Infrastructure", desc: "TLS 1.3 · AES-256" },
+  { label: "Privacy-Focused Systems", desc: "Data minimization" },
+  { label: "Enterprise-Ready", desc: "SOC 2 aligned" },
 ];
 
 export function Footer() {
@@ -57,7 +57,7 @@ export function Footer() {
             whileTap={{ scale: 0.98 }}
             className="bg-purple-600 hover:bg-purple-500 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-purple-500/25 text-sm whitespace-nowrap"
           >
-            Schedule Consultation
+            Get an AI Growth Audit
           </motion.a>
         </div>
       </div>
@@ -138,7 +138,7 @@ export function Footer() {
         <div className="max-w-6xl mx-auto px-6 py-10 flex flex-wrap justify-center gap-8">
           {trustBadges.map((badge) => (
             <div key={badge.label} className="flex items-center gap-3 text-xs text-white/25">
-              <span className="text-base">{badge.icon}</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-purple-500/40 flex-shrink-0" />
               <div>
                 <div className="font-medium text-white/35">{badge.label}</div>
                 <div className="text-white/15">{badge.desc}</div>
