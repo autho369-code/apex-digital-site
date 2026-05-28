@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { RetroGrid } from "@/components/ui/retro-grid";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { BlurFade } from "@/components/ui/blur-fade";
@@ -69,6 +70,25 @@ const inputClasses = "w-full bg-white/[0.07] border border-white/20 rounded-xl p
 const labelClasses = "block text-xs font-semibold text-white/50 uppercase tracking-wider mb-2.5";
 
 export default function Home() {
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormStatus("submitting");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
+      if (res.ok) {
+        setFormStatus("success");
+        form.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-black">
       <Particles className="absolute inset-0 z-0 pointer-events-none" quantity={60} ease={50} color="#6666ff" refresh />
@@ -380,61 +400,79 @@ export default function Home() {
         </BlurFade>
         <BlurFade delay={0.2}>
           <MagicCard className="p-9 sm:p-12 border-white/[0.08] bg-white/[0.02] text-left" gradientSize={300} gradientColor="#6666ff" gradientOpacity={0.04}>
-            <form action="mailto:autho369@gmail.com?subject=Portier%20AI%20—%20AI%20Growth%20Audit" method="post" encType="text/plain" className="space-y-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                <div><label className={labelClasses}>Full Name <span className="text-purple-400">*</span></label><input name="Name" required className={inputClasses} placeholder="John Smith" /></div>
-                <div><label className={labelClasses}>Company Name <span className="text-purple-400">*</span></label><input name="Company" required className={inputClasses} placeholder="Smith Plumbing & HVAC" /></div>
+            {formStatus === "success" ? (
+              <div className="text-center py-16">
+                <div className="text-5xl mb-6">✓</div>
+                <h3 className="text-2xl font-light tracking-tight text-white mb-3">Application received</h3>
+                <p className="text-white/50 max-w-md mx-auto leading-relaxed">We review every application personally. If there's a strong fit, we'll reach out within 24 hours. No spam. No outsourced sales teams.</p>
+                <button onClick={() => setFormStatus("idle")} className="mt-8 text-sm text-purple-400 hover:text-purple-300 font-semibold transition-colors">Submit another application</button>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                <div><label className={labelClasses}>Website URL</label><input name="Website" type="url" className={inputClasses} placeholder="https://yourbusiness.com" /></div>
-                <div><label className={labelClasses}>Business Type</label><select name="BusinessType" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
-                  <option value="" className="bg-neutral-900 text-white/40">Select industry</option>
-                  <option value="home-services" className="bg-neutral-900 text-white">Home Services</option>
-                  <option value="medical" className="bg-neutral-900 text-white">Medical / Dental</option>
-                  <option value="legal" className="bg-neutral-900 text-white">Legal</option>
-                  <option value="property" className="bg-neutral-900 text-white">Property Management</option>
-                  <option value="hospitality" className="bg-neutral-900 text-white">Hospitality</option>
-                  <option value="retail" className="bg-neutral-900 text-white">Local Retail</option>
-                  <option value="multi-location" className="bg-neutral-900 text-white">Multi-Location Business</option>
-                  <option value="other" className="bg-neutral-900 text-white">Other</option>
-                </select></div>
-              </div>
-              <div><label className={labelClasses}>Current Biggest Challenge</label><textarea name="Challenge" rows={3} className={`${inputClasses} resize-none`} placeholder="Missed calls, weak visibility, outdated website, low reviews, inconsistent lead flow, manual admin work..." /></div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                <div><label className={labelClasses}>Monthly Lead Volume</label><select name="LeadVolume" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
-                  <option value="" className="bg-neutral-900 text-white/40">Select range</option>
-                  <option value="under-25" className="bg-neutral-900 text-white">Under 25 leads/month</option>
-                  <option value="25-100" className="bg-neutral-900 text-white">25–100</option>
-                  <option value="100-500" className="bg-neutral-900 text-white">100–500</option>
-                  <option value="500-plus" className="bg-neutral-900 text-white">500+</option>
-                </select></div>
-                <div><label className={labelClasses}>Timeline</label><select name="Timeline" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
-                  <option value="" className="bg-neutral-900 text-white/40">Select timeline</option>
-                  <option value="asap" className="bg-neutral-900 text-white">ASAP</option>
-                  <option value="30-days" className="bg-neutral-900 text-white">Within 30 days</option>
-                  <option value="90-days" className="bg-neutral-900 text-white">Within 90 days</option>
-                  <option value="exploring" className="bg-neutral-900 text-white">Just exploring</option>
-                </select></div>
-              </div>
-              <div>
-                <label className={labelClasses}>What are you most interested in?</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
-                  {["Website Rebuild","AI Voice Receptionist","SEO / AI Visibility","Review Growth","Booking Automation","Content Systems","Full AI Infrastructure"].map((item) => (
-                    <label key={item} className="flex items-center gap-3 text-sm text-white/60 hover:text-white/80 transition-colors cursor-pointer group">
-                      <input type="checkbox" name="Interests" value={item} className="w-4 h-4 rounded border-white/20 bg-white/[0.06] text-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:ring-offset-0 cursor-pointer accent-purple-500" />
-                      <span className="group-hover:text-white/80 transition-colors">{item}</span>
-                    </label>
-                  ))}
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-7">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                  <div><label className={labelClasses}>Full Name <span className="text-purple-400">*</span></label><input name="Name" required className={inputClasses} placeholder="John Smith" /></div>
+                  <div><label className={labelClasses}>Company Name <span className="text-purple-400">*</span></label><input name="Company" required className={inputClasses} placeholder="Smith Plumbing & HVAC" /></div>
                 </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                <div><label className={labelClasses}>Email Address <span className="text-purple-400">*</span></label><input type="email" name="Email" required className={inputClasses} placeholder="you@company.com" /></div>
-                <div><label className={labelClasses}>Phone Number <span className="text-white/25 font-normal">(recommended)</span></label><input type="tel" name="Phone" className={inputClasses} placeholder="(555) 123-4567" /></div>
-              </div>
-              <div><label className={labelClasses}>What would a successful outcome look like for your business?</label><textarea name="Outcome" rows={3} className={`${inputClasses} resize-none`} placeholder="More booked jobs, fewer missed calls, stronger online visibility, better operational efficiency..." /></div>
-              <button type="submit" className="w-full bg-purple-600 hover:bg-purple-500 text-white font-semibold py-4 rounded-xl transition-all duration-200 text-base hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.01] focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black focus:outline-none">Request AI Growth Audit</button>
-              <p className="text-xs text-white/25 text-center pt-1 leading-relaxed">We review every application personally. If there is a strong fit, we will reach out within 24 hours. No spam. No outsourced sales teams. No generic pitches.</p>
-            </form>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                  <div><label className={labelClasses}>Website URL</label><input name="Website" type="url" className={inputClasses} placeholder="https://yourbusiness.com" /></div>
+                  <div><label className={labelClasses}>Business Type</label><select name="BusinessType" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
+                    <option value="" className="bg-neutral-900 text-white/40">Select industry</option>
+                    <option value="home-services" className="bg-neutral-900 text-white">Home Services</option>
+                    <option value="medical" className="bg-neutral-900 text-white">Medical / Dental</option>
+                    <option value="legal" className="bg-neutral-900 text-white">Legal</option>
+                    <option value="property" className="bg-neutral-900 text-white">Property Management</option>
+                    <option value="hospitality" className="bg-neutral-900 text-white">Hospitality</option>
+                    <option value="retail" className="bg-neutral-900 text-white">Local Retail</option>
+                    <option value="multi-location" className="bg-neutral-900 text-white">Multi-Location Business</option>
+                    <option value="other" className="bg-neutral-900 text-white">Other</option>
+                  </select></div>
+                </div>
+                <div><label className={labelClasses}>Current Biggest Challenge</label><textarea name="Challenge" rows={3} className={`${inputClasses} resize-none`} placeholder="Missed calls, weak visibility, outdated website, low reviews, inconsistent lead flow, manual admin work..." /></div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                  <div><label className={labelClasses}>Monthly Lead Volume</label><select name="LeadVolume" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
+                    <option value="" className="bg-neutral-900 text-white/40">Select range</option>
+                    <option value="under-25" className="bg-neutral-900 text-white">Under 25 leads/month</option>
+                    <option value="25-100" className="bg-neutral-900 text-white">25–100</option>
+                    <option value="100-500" className="bg-neutral-900 text-white">100–500</option>
+                    <option value="500-plus" className="bg-neutral-900 text-white">500+</option>
+                  </select></div>
+                  <div><label className={labelClasses}>Timeline</label><select name="Timeline" className={`${inputClasses} appearance-none cursor-pointer bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27 stroke=%27%23ffffff40%27 stroke-width=%271.5%27%3E%3Cpath d=%27m2 4 4 4 4-4%27/%3E%3C/svg%3E')] bg-[length:12px] bg-[right_16px_center] bg-no-repeat`}>
+                    <option value="" className="bg-neutral-900 text-white/40">Select timeline</option>
+                    <option value="asap" className="bg-neutral-900 text-white">ASAP</option>
+                    <option value="30-days" className="bg-neutral-900 text-white">Within 30 days</option>
+                    <option value="90-days" className="bg-neutral-900 text-white">Within 90 days</option>
+                    <option value="exploring" className="bg-neutral-900 text-white">Just exploring</option>
+                  </select></div>
+                </div>
+                <div>
+                  <label className={labelClasses}>What are you most interested in?</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+                    {["Website Rebuild","AI Voice Receptionist","SEO / AI Visibility","Review Growth","Booking Automation","Content Systems","Full AI Infrastructure"].map((item) => (
+                      <label key={item} className="flex items-center gap-3 text-sm text-white/60 hover:text-white/80 transition-colors cursor-pointer group">
+                        <input type="checkbox" name="Interests" value={item} className="w-4 h-4 rounded border-white/20 bg-white/[0.06] text-purple-500 focus:ring-2 focus:ring-purple-500/20 focus:ring-offset-0 cursor-pointer accent-purple-500" />
+                        <span className="group-hover:text-white/80 transition-colors">{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
+                  <div><label className={labelClasses}>Email Address <span className="text-purple-400">*</span></label><input type="email" name="Email" required className={inputClasses} placeholder="you@company.com" /></div>
+                  <div><label className={labelClasses}>Phone Number <span className="text-white/25 font-normal">(recommended)</span></label><input type="tel" name="Phone" className={inputClasses} placeholder="(555) 123-4567" /></div>
+                </div>
+                <div><label className={labelClasses}>What would a successful outcome look like for your business?</label><textarea name="Outcome" rows={3} className={`${inputClasses} resize-none`} placeholder="More booked jobs, fewer missed calls, stronger online visibility, better operational efficiency..." /></div>
+                {formStatus === "error" && (
+                  <div className="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">Something went wrong. Please try again or email support@portierai.com.</div>
+                )}
+                <button
+                  type="submit"
+                  disabled={formStatus === "submitting"}
+                  className="w-full bg-purple-600 hover:bg-purple-500 text-white font-semibold py-4 rounded-xl transition-all duration-200 text-base hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.01] focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-black focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                >
+                  {formStatus === "submitting" ? "Submitting..." : "Request AI Growth Audit"}
+                </button>
+                <p className="text-xs text-white/25 text-center pt-1 leading-relaxed">We review every application personally. If there is a strong fit, we will reach out within 24 hours. No spam. No outsourced sales teams. No generic pitches.</p>
+              </form>
+            )}
           </MagicCard>
         </BlurFade>
       </section>
